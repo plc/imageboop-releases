@@ -24,9 +24,9 @@ folder beside the originals.
   re-dropping a folder does not process its own results.
 - **Three destinations.** The same folder as the originals by default, a named subfolder beside
   them, or one folder of your choosing for everything.
-- **A queue you can rearrange.** Drag a tile and its neighbours lean toward it; let go and it
-  takes the nearest slot. Order is processing order. Hovering a tile offers a ✕ and a button
-  that shows the original in Finder, both also on the right-click menu.
+- **A queue you can rearrange.** Drag a tile and the others shuffle aside to open a gap where
+  it would land; let go and it takes that slot. Order is processing order. Hovering a tile
+  offers a ✕ and a button that shows the original in Finder, both also on the right-click menu.
 - Concurrent processing bounded at cores-minus-one, with per-image progress in the grid and a
   Cancel that never leaves a half-written file.
 - Liquid Glass chrome on macOS 26 and later, materials before that.
@@ -66,6 +66,12 @@ folder beside the originals.
   name and skipped is reported.
 - **`AppVersion`'s synthesised `==` contradicted its `<`**, making "1.2" and "1.2.0" different
   releases.
+- **The width field came up focused and stayed focused**, so anything typed after adding images
+  went into it and overwrote the number already there. Nothing takes keyboard focus at rest now;
+  the fields are for when you click them.
+- **A cancelled "Choose a folder…" could persist across launches**, bringing the app up with
+  Process disabled for a reason set in a previous session. It falls back to writing beside the
+  originals, as it does if a chosen folder has since been deleted or unmounted.
 - **The grid hung the window when a tile was dragged.** The frame reporter sat inside the offset
   it was measuring, so moving a tile changed its measurement, which moved it again. There were
   no crash reports because it was never a crash — just a beachball.
