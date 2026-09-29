@@ -4,6 +4,23 @@ All notable changes to Imageboop. Newest first. Versions are semver; every relea
 `vX.Y.Z` and published at
 [plc/imageboop-releases](https://github.com/plc/imageboop-releases/releases).
 
+## 0.2.0 — 2026-09-29
+
+### Added
+
+- **Help > Send App Feedback…**, which files a GitHub issue against the app with your app and
+  macOS versions filled in.
+  - **Send** posts it without leaving the app, through Imageboop's own GitHub account, so your
+    name is not attached.
+  - **Open in Browser** files it as you instead, needs no setup, and works whether or not you
+    trust the above.
+  - **Use My Own Account…** takes a token of your own, kept in your login Keychain, if you would
+    rather issues appeared under your name. Yours overrides the shipped one.
+
+  The app carries a token so Send works out of the box. It can create issues on the public
+  downloads repository and nothing else — no code, no settings, no other repository — which was
+  established by probing the API rather than assumed.
+
 ## 0.1.0 — 2026-09-29
 
 First build. Drop images on a window, pick a size and a format, get them back in a `processed`
