@@ -4,6 +4,53 @@ All notable changes to Imageboop. Newest first. Versions are semver; every relea
 `vX.Y.Z` and published at
 [plc/imageboop-releases](https://github.com/plc/imageboop-releases/releases).
 
+## 0.4.0 — 2026-09-29
+
+### Changed
+
+- **The size controls are now a width, a height, a unit and a checkbox — no mode picker.**
+  Which field you fill is what happens: width alone resizes by width, height alone by height,
+  both together fit inside the two, neither leaves the image alone. A blank field means *no
+  opinion*, and shows greyed what that edge will actually come out at.
+
+  This replaces five menu items that described what the fields were already saying, two of
+  which — "Fit within" and "Width" — give identical answers on a landscape photo and so mostly
+  created the question they existed to answer.
+
+- **Proportional**, on by default. Off stretches each edge to its own number, which distorts
+  the image. Internally every filled field is just a scale factor, so per cent, pixels, one
+  field, two fields, proportional and not are one rule rather than a case each.
+
+- **Each thumbnail previews its own result, live.** Change a number and every tile updates as
+  you type. One aggregate line cannot describe a queue of different shapes: at 2000 wide a
+  4284 × 5712 portrait becomes 2000 × 2667 while a 2454 × 1288 landscape becomes 2000 × 1050,
+  and quoting the largest image described neither of the others. Images already under the
+  target show no arrow at all, since nothing about them will change.
+
+  Changing a setting after a run puts the tiles back to previewing rather than leaving them
+  showing what the *last* run produced under rules that no longer apply.
+
+- **Less copy again.** The aggregate Output row and the running "N images · N MB" tally are
+  gone — the grid was already showing both. What is left is progress while it runs and the
+  result when it finishes.
+
+- **Process is called Boop.**
+
+### Fixed
+
+- **Dimensions were truncated into nonsense.** The thumbnail caption truncated in the middle,
+  which is right for a filename and ruinous for a pair of dimensions: "2454 × 1288 → 2000 ×
+  1050" rendered as "2454 × 128…00 × 1050", reading as a corrupted number rather than a
+  shortened line.
+- A zero or negative size in a hand-edited settings file clamped up to 1px and produced a
+  one-pixel image. It is now ignored, so nonsense declines to resize rather than destroying the
+  picture.
+
+### Note
+
+Size settings reset once on first launch: the stored format changed shape and inheriting half
+of it would be worse than starting from the defaults.
+
 ## 0.3.0 — 2026-09-29
 
 ### Changed
