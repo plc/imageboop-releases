@@ -4,6 +4,29 @@ All notable changes to Imageboop. Newest first. Versions are semver; every relea
 `vX.Y.Z` and published at
 [plc/imageboop-releases](https://github.com/plc/imageboop-releases/releases).
 
+## 0.3.0 — 2026-09-29
+
+### Changed
+
+- **The window is actually translucent now.** It was a painted gradient before — Liquid Glass
+  only refracts what is behind it *inside* the window, so the control bar was faithfully
+  refracting a static picture and was indistinguishable from a flat panel. The window now
+  blends with what is behind it, which is what makes the glass on top of it read as glass.
+- **Less copy.** Gone: the subtitle under "Drop images here", "Results sit next to each
+  original", the settings restated under the button, and "No images yet" beside a disabled
+  button on a window that already says "Drop images here". What is left after a run is the
+  count, the size written, and anything that failed.
+- **The Output line reports the output.** The figure on the right was the total size going in,
+  which is already in the status line; it is now the size that came out, with the saving beside
+  it.
+- **Process is called Boop.**
+- Clear and Boop are the same height. `.glass` and `.glassProminent` do not pad their labels
+  identically, so the primary button was visibly shorter than the one next to it.
+- The size modes explain themselves on hover, with worked examples. "Fit within" and "Width"
+  give identical answers on a landscape photo — the width runs out first either way — so the
+  two look redundant until you try a portrait, where only Fit within holds both edges under the
+  number.
+
 ## 0.2.0 — 2026-09-29
 
 ### Added
